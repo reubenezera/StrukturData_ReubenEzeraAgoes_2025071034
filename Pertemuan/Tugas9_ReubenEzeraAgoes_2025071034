@@ -1,0 +1,38 @@
+#include <stdio.h>
+#define MAX 7
+
+//inisialisasi stack
+int stack[MAX];
+int top = -1;
+
+void push(int data) { //algoritma push
+	(top == MAX - 1) ? printf("Stack penuh\n") : (top++, stack[top] = data);
+}
+
+void pop() { //algoritma pop
+	(top == -1) ? printf("Stack kosong\n") : (printf("Data keluar: %d\n\n", stack[top]), top--);
+}
+
+void display() { //algoritma print elemen stack
+	for (int i = top; i >= 0; i--) {
+		printf("%d\n", stack[i]);
+	}
+}
+
+int main() {
+	push(25);
+	push(50);
+	push(75);
+	push(100);
+	push(125);
+	
+	printf("Setelah push:\n");
+	display(), printf("\n");
+	
+	pop();
+	
+	printf("Setelah pop:\n");
+	display(), printf("\n");
+
+	return 0;
+}
