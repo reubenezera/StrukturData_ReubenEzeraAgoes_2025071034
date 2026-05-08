@@ -1,0 +1,49 @@
+#include <stdio.h>
+#define MAX 5
+
+int queue[MAX];
+int front = 0;
+int rear = -1;
+
+//operasi penambahan data di rear
+void enqueue(int data) {
+	//isFull
+	if(rear == MAX - 1) {
+		printf("Queue is full\n");
+
+	} else {
+		rear++; //indeks rear naik
+		queue[rear] = data; //elemen baru diberi nilai
+	}
+}
+
+//operasi pengeluaran data di front
+void dequeue() {
+	//isEmpty
+	if(front > rear) {
+		printf("Queue is full\n");
+
+	} else {
+		printf("Data keluar: %d\n", queue[front]); //print nilai elemen yang keluar
+		front++; //indeks front berubah menjadi indeks elemen setelahnya
+	}
+}
+
+//operasi penampilan queue
+void display() {
+	int i;
+	for(int i = front; i <= rear; i++) {
+		printf("%d ", queue[i]);
+	}
+	printf("\n\n");
+}
+int main() {
+	enqueue(123);
+	enqueue(45);
+	enqueue(67);
+	display();
+	dequeue();
+	printf("\nAfter dequeue:\n"), display();
+
+	return 0;
+}
