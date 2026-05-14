@@ -31,7 +31,6 @@ void dequeue() {
 
 //operasi penampilan queue
 void display() {
-	int i;
 	for(int i = front; i <= rear; i++) {
 		printf("%d ", queue[i]);
 	}
